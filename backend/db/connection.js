@@ -2,7 +2,14 @@
 const mongoose = require('mongoose')
 
 // Set the uri for connecting to our local mongodb
-const mongoURI = 'mongodb://localhost/recipe_cookbooks_db'
+//const mongoURI = 'mongodb://localhost/recipe_cookbooks_db'
+let mongoURI = "";
+
+if (process.env.NODE_ENV === "production") {
+    mongoURI = process.env.MONGODB_URI;
+  } else {
+    mongoURI = "mongodb://localhost/mern-lab";
+  }
 
 // connect to database with imported mongoose instance
 mongoose

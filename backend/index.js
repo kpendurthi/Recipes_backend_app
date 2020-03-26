@@ -19,6 +19,8 @@ app.use('/api/recipes', recipesController)
 // app.use('/api/ingredients',ingredientsController)
 app.use('/api/categories',categoriesController)
 
-app.listen(8080, () => {
-  console.log('They see me rollin...on port 8080...');
+app.set("port", process.env.PORT || 8080);
+
+app.listen(app.get("port"), () => {
+  console.log(`✅ PORT: ${app.get("port")} 🌟`);
 });	
